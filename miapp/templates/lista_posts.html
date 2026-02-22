@@ -8,7 +8,11 @@
 
     {% for post in posts %}
         <hr>
-        <h2>{{ post.titulo }}</h2>
+        <h2>
+    <a href="{% url 'detalle_post' post.id %}">
+        {{ post.titulo }}
+    </a>
+</h2>
         <p>{{ post.contenido }}</p>
         <small>{{ post.fecha_creacion|date:"d M Y H:i" }}</small>
     {% endfor %}
