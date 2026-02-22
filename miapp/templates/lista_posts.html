@@ -2,20 +2,31 @@
 <html>
 <head>
     <title>Mi Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Mi Blog</h1>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">📝 Mi Blog</h1>
 
     {% for post in posts %}
-        <hr>
-        <h2>
-    <a href="{% url 'detalle_post' post.id %}">
-        {{ post.titulo }}
-    </a>
-</h2>
-        <p>{{ post.contenido }}</p>
-        <small>{{ post.fecha_creacion|date:"d M Y H:i" }}</small>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">
+                    <a href="{% url 'detalle_post' post.id %}" class="text-decoration-none text-dark">
+                        {{ post.titulo }}
+                    </a>
+                </h3>
+                <p class="card-text">{{ post.contenido|truncatewords:25 }}</p>
+                <small class="text-muted">
+                    {{ post.fecha_creacion|date:"d M Y H:i" }}
+                </small>
+            </div>
+        </div>
     {% endfor %}
+
+</div>
 
 </body>
 </html>
+
