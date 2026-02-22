@@ -23,3 +23,4 @@ urlpatterns = [
     path('', lista_posts, name='lista_posts'),
     path('post/<int:post_id>/', detalle_post, name='detalle_post'),
 ]
+
