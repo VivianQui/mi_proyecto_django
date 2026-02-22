@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from miapp.views import inicio
-
+from miapp.views import lista_posts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', inicio),
+    path('', lista_posts),
 ]
