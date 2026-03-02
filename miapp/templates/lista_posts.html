@@ -8,20 +8,31 @@
 
 {% for post in posts %}
     <div class="card mb-4 shadow-sm">
+
         <div class="card-body">
+
+            {% if post.imagen %}
+                <img src="{{ post.imagen.url }}" class="card-img-top" alt="{{ post.titulo }}">
+            {% endif %}
+
             <h3>
                 <a href="{% url 'detalle_post' post.id %}" class="text-decoration-none text-dark">
                     {{ post.titulo }}
                 </a>
             </h3>
+
             <p>{{ post.contenido|truncatewords:25 }}</p>
+
             <small class="text-muted">
                 {{ post.fecha_creacion|date:"d M Y H:i" }}
             </small>
+
         </div>
     </div>
 {% empty %}
     <p>No hay publicaciones aún.</p>
 {% endfor %}
+
+{% endblock %}
 
 
